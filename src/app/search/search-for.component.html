@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 offset-md-8">
+      <form #templateDrivenForm="ngForm" (ngSubmit)="select(templateDrivenForm)" class="mt-8">
+        <div class="form-group row">
+          <div class="col-sm-8">
+            <select ngModel name="SurahNumber" class="form-control" id="surahSelect" aria-describedby="surahHelp">
+              @for (item of numbersArray; track $index) {
+                <option [value]="item">{{item}}</option>
+              }
+            </select>
+          </div>
+          <label for="surahSelect" class="col-sm-4 col-form-label text-md-end">رقم السورة</label>
+        </div>
+        <br>
+        <div class="form-group row">
+          <div class="col-sm-8">
+            <select ngModel name="VerseNumber" class="form-control" id="verseSelect" aria-describedby="verseHelp">
+              @for (item of numbersArray; track $index) {
+                <option [value]="item">{{item}}</option>
+              }
+            </select>
+          </div>
+          <label for="verseSelect" class="col-sm-4 col-form-label text-md-end">رقم الآية</label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" style="width: 300px;">ابحث</button>
+      </form>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row mt-3">
+    <div class="col-md-6 offset-md-3" style="text-align: center;">
+      <p>{{surahNumber}}</p>
+      <p>{{english}}</p>
+      <p>{{arabic}}</p>
+      <p>{{details}}</p>
+    </div>
+  </div>
+</div>
